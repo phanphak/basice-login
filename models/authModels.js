@@ -6,3 +6,11 @@ exports.createUser = async(email, password) =>{
     const [result] = await db.query(sql, [email, password]);
     return result;
 }
+
+
+
+exports.findEmail = async (email) =>{
+    const sql = ("SELECT * FROM basice_login_tb WHERE email= ?");
+    const [result] = await db.query(sql, [email]);
+    return result[0];
+}
